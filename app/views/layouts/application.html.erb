@@ -5,11 +5,16 @@
   </head>
 
   <body class="d-flex flex-column h-100">
+    
     <main class="flex-shrink-0"> 
       <%= render 'shared/navbar' %>
       <%= render 'shared/notices' %>
 
       <div class="container mt-4 mx-auto">
+        <%= Category.all.each do |category| %>
+        <%= link_to category.name, jobs_path(category: category.name) %>
+      <% end %>
+  
         <%= yield %>
       </div>
     </main>
